@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=k, initial-scale=1.0">
+    <title>kkbox</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        button {
+            background: none;
+            border: none;
+        }
+
+        .mb-hd {
+            display: none;
+        }
+
+        .mb-ft {
+            display: none;
+        }
+
+        .rwd-top-area {
+            display: none;
+        }
+
+        .mc-img,
+        .ac-img {
+            overflow: hidden;
+            width: 90%;
+        }
+
+        .ac-img3 {
+            overflow: hidden;
+            width: 85%;
+        }
+
+        .scale {
+            transform: scale3d(1.1, 1.1, 1.1);
+            transition: 300ms;
+        }
+
+        .scalee {
+            transition: 500ms;
+        }
+
+        .fixed {
+            position: fixed;
+            z-index: 111;
+            background-color: #fff;
+            width: 98.4%;
+            top: 0;
+        }
+
+        .static {
+            position: static;
+            z-index: 111;
+            background-color: #fff;
+            width: 98.4%;
+
+        }
+
+        /* page-wrap */
+        .page-wrap {
+            border: 10px solid #09cef6;
+            border-top-width: 90px;
+            position: relative;
+        }
+
+        .page-wrap .biglogo {
+            position: absolute;
+            top: -60px;
+            left: 550px;
+        }
+
+        .page-wrap .biglogo img {
+            width: 50%;
+        }
+
+        .rwd-Latest,
+        .rwd-Featured {
+            display: none;
+        }
+
+        /* pc header */
+        .pc-hd {
+            border-bottom: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .pc-hd-contain {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .pc-hd li {
+            padding-right: 15px;
+            padding-left: 15px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .pchd-menu {
+            display: flex;
+            margin-left: 100px;
+        }
+
+        .pchd-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .pcr1 {
+            display: flex;
+            align-items: center;
+        }
+
+        /* pc footer */
+        .pc-ft {
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .pc-ft-contain {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pc-ft-l {
+            margin-left: 30px;
+        }
+
+
+        .pc-ft-contain .pc-ft-1,
+        .pc-ft-contain .pc-ft-2 {
+            margin-right: 100px;
+
+        }
+
+        .pc-ft-1 ul,
+        .pc-ft-2 ul {
+            padding-left: 0;
+        }
+
+        .pc-ft-2 {
+            width: 10%;
+        }
+
+        .pc-ft-2 ul li img {
+            width: 50%;
+        }
+
+        .pc-ft .pc-ft-contain h3 {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 19px;
+        }
+
+        .pc-ft .pc-ft-contain li {
+            margin-bottom: 8px;
+            color: #ddd;
+            font-size: 10px;
+            line-height: 1.43;
+            font-weight: 400;
+        }
+
+        .pc-ft .pc-ft-contain .pc-ft-i {
+            display: flex;
+        }
+
+        .pc-ft .pc-ft-contain .pc-ft-i i {
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        .pc-ft .pc-ft-contain .pc-ft-p {
+            display: flex;
+        }
+
+        .pc-ft .pc-ft-contain .pc-ft-p p {
+            cursor: pointer;
+            border-radius: 30px;
+            padding: 5px 50px;
+            font-size: 12px;
+            color: hsla(0, 0%, 100%, .8);
+            background-color: hsla(0, 0%, 100%, .15);
+            margin-right: 10px;
+        }
+
+        .pc-bt-contain p {
+            font-weight: 400;
+            color: #fff;
+            font-size: 10px;
+        }
+
+        /* section top-area */
+        .top-area {
+            padding-top: 40px;
+        }
+
+        .top-area img {
+            width: 100%;
+        }
+
+        .top-area .main-card {
+            position: relative;
+        }
+
+        .top-area .main-card .main-card-article .main-card-tittle .main-card-a {
+            display: block;
+        }
+
+        .top-area .main-card .main-card-article .main-card-tittle .main-card-a a {
+            background-color: #f78654;
+            color: #fff;
+            padding: 8px;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .top-area .main-card .main-card-article .main-card-tittle {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 330px;
+            right: 30px;
+        }
+
+        .top-area .main-card .main-card-article .main-card-tittle span,
+        .rwd-top-area .main-card .main-card-article .main-card-tittle span {
+            background: #000;
+            width: fit-content;
+            font-weight: 700;
+            padding: 5px 16px;
+            color: #09cef6;
+            font-size: 30px;
+            line-height: 1.73;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 40px;
+
+        }
+
+        .top-area .main-card .main-card-article .main-card-p p,
+        .rwd-top-area .main-card .main-card-article p {
+            font-size: 16px;
+            line-height: 1.63;
+            color: #999;
+
+        }
+
+        .top-area .main-card .main-card-article .main-card-p .datetime,
+        .aside-cards .aside-card .aside-card-tittle p,
+        .Latest .Latest-top .main-card p,
+        .Latest .Latest-bot .aside-card p,
+        .Featured .main-Featured .aside-card p,
+        .top-area .aside-cards .aside-card2 p,
+        .rwd-Latest .Latest-top .row .aside-card .aside-card-tittle p,
+        .rwd-Latest .Latest-top .row .main-card .aside-card-tittle p {
+            color: #787878;
+            font-size: 12px;
+        }
+
+        .top-area .main-card .main-card-article .main-card-p .datetime::after {
+            content: "・";
+        }
+
+        .aside-cards {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .aside-cards .aside-card .aside-card-tittle .aside-card-a a,
+        .Latest .Latest-top .main-card .aside-card-tittle .aside-card-a a,
+        .Latest .Latest-bot .aside-card .aside-card-tittle .aside-card-a a,
+        .Featured .row .main-Featured .aside-card a,
+        .top-area .aside-cards .aside-card2 a,
+        .rwd-Featured .main-Featured .aside-card a,
+        .rwd-Latest .Latest-top .main-card .aside-card-tittle .aside-card-a a,
+        .rwd-Latest .Latest-top .aside-card .aside-card-tittle .aside-card-a a {
+            margin-right: 10px;
+            color: #111;
+            text-decoration: none;
+            line-height: 1;
+            font-size: 10px;
+            font-weight: 500;
+            border-bottom: 2px solid #f78654;
+
+        }
+
+        .aside-cards .aside-card .aside-card-tittle span,
+        .Latest .main-card span,
+        .Latest .Latest-bot .aside-card span,
+        .Featured .main-Featured .aside-card span,
+        .top-area .aside-cards .aside-card2 span,
+        .rwd-Featured .main-Featured .aside-card span {
+            color: #111;
+            background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 50%, #a0eeff 0);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .aside-cards .aside-card .aside-card-tittle span,
+        .top-area .aside-cards .aside-card2 span {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 20px
+        }
+
+        .top-area .aside-cards .aside-card2 {
+            margin-top: 30px;
+        }
+
+        /* section2 Latest */
+        .Latest img {
+            width: 100%;
+        }
+
+        .Latest .main-card {
+            margin-bottom: 80px;
+        }
+
+        .Latest .main-card,
+        .Latest .Latest-bot .aside-card,
+        .aside-cards .aside-card,
+        .top-area .aside-cards .aside-card2 {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .Latest .main-card span,
+        .Latest .Latest-bot .aside-card span {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 40px;
+        }
+
+
+        /* section3 Featured */
+        .Featured {
+            margin-bottom: 30px;
+        }
+
+        .Featured img {
+            width: 100%;
+        }
+
+        .Featured .main-Featured .aside-card {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .Featured .aside-card .aside-card-tittle {
+            margin-left: 20px;
+        }
+
+        .Featured .main-Featured .aside-card span {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .Featured img {
+            width: 100%;
+        }
+
+        .Featured .img3 {
+            width: 95%;
+        }
+
+        .Featured .aside-Featured,
+        .rwd-Featured .aside-Featured {
+            padding: 25px 20px;
+            background-color: #111;
+            border-radius: 6px;
+            height: fit-content;
+
+
+        }
+
+        .Featured .aside-Featured span,
+        .rwd-Featured .aside-Featured span {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: normal;
+            line-height: 1;
+            margin: 0 0 16px;
+        }
+
+        .Featured .aside-Featured .leaderboard .aside-Featured-a,
+        .rwd-Featured .aside-Featured .leaderboard .aside-Featured-a {
+            display: flex;
+            text-decoration: none;
+        }
+
+        .Featured .aside-Featured .leaderboard a .rank,
+        .rwd-Featured .aside-Featured .leaderboard a .rank {
+            font-size: 18px;
+            color: #ffd200;
+            font-weight: 700;
+            line-height: 3.2;
+        }
+
+        .Featured .aside-Featured .leaderboard a .lb-tittle,
+        .rwd-Featured .aside-Featured .leaderboard a .lb-tittle {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+
+        .Featured .aside-Featured .leaderboard a .lb-tittle .songname,
+        .rwd-Featured .aside-Featured .leaderboard a .lb-tittle .songname {
+            color: #ffd200;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 8px;
+
+        }
+
+        .Featured .aside-Featured .leaderboard a .lb-tittle .singer,
+        .rwd-Featured .aside-Featured .leaderboard a .lb-tittle .singer {
+            color: #a9a9a9;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.14;
+
+        }
+
+        .Featured .aside-Featured .more,
+        .rwd-Featured .aside-Featured .more {
+            background-color: hsla(0, 0%, 100%, .08);
+            border-radius: 20px;
+            color: #fff;
+            font-size: 10px;
+            padding: 10px 30px;
+            margin-left: 100px;
+
+        }
+
+        /* section hits */
+        .hits {
+            background-color: #000;
+            padding: 40px 0 60px;
+        }
+
+        .hits h2 {
+            font-size: 35px;
+            color: #fff;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hits .card1 {
+            border-right: 1px solid #333;
+        }
+
+        .hits .card1 img {
+            width: 60%;
+            margin-bottom: 15px;
+        }
+
+        .hits .card1-album .album {
+            display: flex;
+        }
+
+        .hits .card1-album .album img {
+            width: 20%;
+        }
+
+        .hits .card1 .card1-tittle span {
+            color: #f78654;
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hits .card1 .card1-tittle p {
+            font-size: 12px;
+            line-height: 1.38;
+            font-weight: 400;
+            color: #aeaeae;
+        }
+
+        .hits .card1 .album {
+            margin-bottom: 10px;
+        }
+
+        .hits .card1 .album .album-tittle {
+            margin-left: 10px;
+        }
+
+        .hits .card1 .album .album-tittle span {
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.11;
+            margin-bottom: 8px;
+        }
+
+        .hits .card1 .album .album-tittle p {
+            color: #fff;
+            font-weight: 400;
+            line-height: 1.14;
+            font-size: 10px;
+
+        }
+
+        @media (max-width:375px) {
+            .pc-hd {
+                display: none;
+            }
+
+            .pc-ft {
+                display: none;
+            }
+
+            .page-wrap {
+                border: none;
+            }
+
+            .page-wrap .biglogo img {
+                display: none;
+            }
+
+            .Latest {
+                display: none;
+            }
+
+            .Featured {
+                display: none;
+            }
+
+            .top-area {
+                display: none;
+            }
+
+            /* mobile header */
+            .mb-hd {
+                display: block;
+                background-color: #fff;
+            }
+
+            .mb-hd-contain {
+                display: flex;
+                align-items: center;
+            }
+
+            .mbhd-logo img {
+                width: 50%;
+            }
+
+            .mbhd-logo {
+                margin-left: 100px;
+            }
+
+            /* mobile top-area */
+            .rwd-top-area {
+                display: block;
+            }
+
+            .rwd-top-area .main-card-article {
+                position: relative;
+                margin-bottom: 220px;
+            }
+
+            .rwd-top-area .main-card-article .main-card-tittle {
+                position: absolute;
+                z-index: 111;
+                top: 150px;
+                left: 15px;
+                right: 15px;
+            }
+
+            .rwd-top-area img {
+                width: 100%;
+            }
+
+            /* mobile latest */
+            .rwd-Latest {
+                display: block;
+                border-bottom: 1px solid #ccc;
+                padding-top: 20px;
+                padding-bottom: 50px;
+
+
+            }
+
+            .rwd-Latest h2,
+            .rwd-Featured h2 {
+                color: #111;
+                font-weight: 800;
+                text-align: center;
+                font-size: 20px;
+                line-height: 1;
+            }
+
+            .rwd-Latest img {
+                width: 100%;
+            }
+
+            .rwd-Latest .Latest-top .row .aside-card .aside-card-tittle span,
+            .rwd-Latest .Latest-top .row .main-card .aside-card-tittle span {
+                color: #111;
+                background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 50%, #a0eeff 0);
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+            /* mobile featured */
+            .rwd-Featured {
+                display: block;
+                border-bottom: 1px solid #ccc;
+                padding-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .rwd-Featured .main-Featured .row .aside-card {
+                margin-bottom: 30px;
+            }
+
+            .rwd-Featured .main-Featured {
+                margin-bottom: 40px;
+            }
+
+            .rwd-Featured img {
+                width: 100%;
+            }
+
+            .rwd-Featured .aside-Featured .more {
+                margin-left: 90px;
+            }
+
+            /* mobile hits */
+            .hits {
+                background-color: #f78654;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-top: 30px;
+            }
+
+            .hits h2 {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 800;
+                text-align: center;
+                line-height: 1;
+            }
+
+            .hits .row {
+                margin: 0;
+            }
+
+            .hits .card1 {
+                background-color: #fff;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                border: none;
+            }
+
+            .hits .card1 img {
+                width: 30%;
+            }
+
+            .hits .card1 .card1h {
+                display: flex;
+                align-items: center;
+            }
+
+            .hits .card1 .card1-album .album img {
+                width: 15%;
+            }
+
+            .hits .card1 .card1-tittle {
+                margin-left: 10px;
+            }
+
+            .hits .card1 .card1-tittle span {
+                font-size: 18px;
+                font-weight: 500;
+                letter-spacing: .23px;
+                line-height: 1;
+                color: #111;
+
+            }
+
+            .hits .card1 .card1-tittle p {
+                color: #767676;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.33;
+                margin-bottom: 15px;
+            }
+
+            .hits .card1 .card1-album .album .album-tittle span {
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1;
+                margin-bottom: 4px;
+            }
+
+            .hits .card1 .card1-album .album .album-tittle p {
+                color: #a9a9a9;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.33;
+            }
+
+
+
+            /* mobile footer */
+            .mb-ft {
+                display: block;
+                padding-top: 20px;
+            }
+
+            .mb-ft {
+                background-color: #333;
+            }
+
+            .mb-ft .mb-ft-contain .mb-ft-p,
+            .mb-bt-contain {
+                display: flex;
+                justify-content: center;
+            }
+
+            .mb-ft .mb-ft-contain .mb-ft-p p {
+                cursor: pointer;
+                border-radius: 30px;
+                padding: 5px 50px;
+                font-size: 12px;
+                color: hsla(0, 0%, 100%, .8);
+                background-color: hsla(0, 0%, 100%, .15);
+                margin-right: 10px;
+            }
+
+            .mb-bt-contain p {
+                font-weight: 400;
+                color: #fff;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <a href="#" class="biglogo">
+            <img src="img/logo/kkbox-rebrand-white.svg" alt="">
+        </a>
+        <!-- pc header -->
+        <header class="pc-hd">
+            <div class="pc-hd-contain">
+                <div class="pchd-left"></div>
+                <ul class="pchd-menu">
+                    <li>最新</li>
+                    <li>podcast</li>
+                    <li>特別企劃</li>
+                    <li>風雲榜</li>
+                    <li>kk帳號</li>
+                    <li>服務介紹</li>
+                </ul>
+                <ul class="pchd-right">
+                    <li class="pcr1">
+                        <img src="img/icon/search.svg" alt="">
+                        <span>搜尋</span>
+                    </li>
+                    <li>下載</li>
+                    <li>訂閱</li>
+                </ul>
+            </div>
+        </header>
+        <!-- mobile header -->
+        <header class="mb-hd">
+            <div class="mb-hd-contain">
+                <button class="mbhd-left">
+                    <img src="img/icon/menu-blue.svg" alt="">
+                </button>
+                <div class="mbhd-logo">
+                    <a href="#">
+                        <img src="img/logo/kkbox-rebrand-blue.svg" alt="">
+                    </a>
+                </div>
+                <button class="mbhd-right">
+                    <img src="img/icon/search-blue.svg" alt="">
+                </button>
+            </div>
+        </header>
+        <!-- main -->
+        <main>
+            <div class="container">
+                <!-- section top-area -->
+                <section class="row top-area">
+                    <div class="main-card col-lg-8 col-12">
+                        <div class="main-card-article">
+                            <div class="mc-img">
+                                <img src="img/article/800x420 (9).jpg" alt="">
+                            </div>
+                            <div class="main-card-tittle">
+                                <div class="main-card-a">
+                                    <a href="">日語</a>
+                                    <a href="">演唱會</a>
+                                </div>
+                                <span>Ken's Bar開店！為開唱，平井堅跑卡拉OK練唱上百回</span>
+                                <div class="main-card-p">
+                                    <p>睽違一年，平井堅再度帶著他的「Ken's
+                                        Bar」與大家共度耶誕佳節。這一場由平井堅擔任總策畫的演唱會，透過簡單的樂器聲及沉穩的黑白色調中，讓人更能專注於他溫暖厚實的嗓音魅力，沉醉其中。</p>
+                                    <p class="datetime">2021/12/26 Isa Chang</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="aside-cards col-lg-4 col-12">
+                        <div class="aside-card">
+                            <div class="ac-img">
+                                <img src="img/article/800x420 (7).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">韓語</a>
+                                    <a href="">獎項榜單</a>
+                                </div>
+                                <span>Wanna One 合體、李孝利性感演出！2021 MAMA 過目不忘舞台一次看</span>
+                                <p>2021/12/26 Isa Chang</p>
+                            </div>
+                        </div>
+                        <div class="aside-card2">
+                            <div class="ac-img">
+                                <img src="img/article/800x420 (6).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">韓語</a>
+                                    <a href="">獎項榜單</a>
+                                </div>
+                                <span>【專訪】〈第六感〉在SNS瘋傳，Reol稱：我每天都會變成不同的人</span>
+                                <p>2021/12/26 Isa Chang</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section latest -->
+                <section class="Latest">
+                    <h2 class="section__title">Latest</h2>
+                    <div class="row Latest-top">
+                        <div class="main-card col-lg-6 col-12">
+                            <div class="mc-img">
+                                <img src="img/article/800x420 (10).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">華語</a>
+                                </div>
+                                <span>相隔 5 年生祥樂隊再開唱！邀大象體操當表演嘉賓</span>
+                                <p>2021/12/27KKBOX編輯室</p>
+                            </div>
+                        </div>
+                        <div class="main-card col-lg-6">
+                            <div class="mc-img">
+                                <img src="img/article/800x420 (8).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">西洋</a>
+                                    <a href="">獨立/另類</a>
+                                    <a href="">專訪</a>
+                                </div>
+                                <span>【專訪】放手讓自己與音樂墜入愛河－倫敦超新星 No Rome</span>
+                                <p>2021/12/23KKBOX編輯室</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row Latest-bot">
+                        <div class="aside-card col-lg-4 col-md-6">
+                            <div class="ac-img">
+                                <img src="img/article/800x420 (3).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">西洋</a>
+                                    <a href="">焦點</a>
+                                    <a href="">專訪</a>
+                                </div>
+                                <span>【專訪】Westlife 透露明年來台開唱！新專輯《Wild Dreams》首首參與創作一窺內心世界</span>
+                                <p>2021/12/4Daniel C.</p>
+                            </div>
+                        </div>
+                        <div class="aside-card col-lg-4">
+                            <div class="ac-img">
+                                <img src="img/article/800x420 (5).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">華語</a>
+                                </div>
+                                <span>萬芳首開線上演唱會！這天在 KKTIX 暖邀歌迷線上見</span>
+                                <p>2021/12/2KKBOX編輯室</p>
+                            </div>
+                        </div>
+                        <div class="aside-card col-lg-4">
+                            <div class="ac-img">
+                                <img src="img/article/800x420 (4).jpg" alt="">
+                            </div>
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">韓語</a>
+                                    <a href="">焦點</a>
+                                    <a href="">主題音樂</a>
+                                </div>
+                                <span>暴雷推薦！《Show Me The Money 10》8組必追矚目選手</span>
+                                <p>2021/12/2Ms.哭包</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section Featured -->
+                <section class="Featured">
+                    <h2 class="section__title">Featured</h2>
+                    <div class="row">
+                        <div class="main-Featured col-lg-8">
+                            <div class="aside-card">
+                                <div class="ac-img">
+                                    <img src="img/article/800x420.jpg" alt="">
+                                </div>
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">金曲獎</a>
+                                        <a href="">華語</a>
+                                        <a href="">焦點</a>
+                                    </div>
+                                    <span>【金曲32】陳鎮川：擦亮金曲獎招牌的關鍵人物！公開典禮幕前幕後的驚險瞬間</span>
+                                    <p>KKBOX編輯室</p>
+                                </div>
+                            </div>
+                            <div class="aside-card">
+                                <div class="ac-img">
+                                    <img src="img/article/800x420 (1).jpg" alt="">
+                                </div>
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">金曲獎</a>
+                                        <a href="">華語</a>
+                                        <a href="">焦點</a>
+                                    </div>
+                                    <span>【金曲32】恭喜葛大為〈無人知曉〉獲得最佳作詞人獎！卻自嘲慘歌專業戶？</span>
+                                    <p>KKBOX編輯室</p>
+                                </div>
+                            </div>
+                            <div class="aside-card">
+                                <div class="ac-img3">
+                                    <img src="img/article/800x420 (2).jpg" alt="" class="img3">
+                                </div>
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">金曲獎</a>
+                                        <a href="">華語</a>
+                                        <a href="">焦點</a>
+                                    </div>
+                                    <span>【金曲32】最佳新人 ?te 壞特：最神秘也最引人矚目的明日之星！</span>
+                                    <p>Yuting</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="aside-Featured col-lg-4">
+                            <span>新歌即時榜</span>
+                            <div class="leaderboard">
+                                <a href="" class="aside-Featured-a">
+                                    <span class="rank">1</span>
+                                    <span class="lb-tittle">
+                                        <span class="songname">閣愛妳一擺 (Love You One More Time)</span>
+                                        <span class="singer">茄子蛋</span>
+                                    </span>
+                                </a>
+                                <a href="" class="aside-Featured-a">
+                                    <span class="rank">2</span>
+                                    <span class="lb-tittle">
+                                        <span class="songname">好不容易 (Finally) - 《華燈初上</span>
+                                        <span class="singer">告五人</span>
+                                    </span>
+                                </a>
+                                <a href="" class="aside-Featured-a">
+                                    <span class="rank">3</span>
+                                    <span class="lb-tittle">
+                                        <span class="songname">對等關係 (feat. 張惠妹)</span>
+                                        <span class="singer">李榮浩, 張惠妹</span>
+                                    </span>
+                                </a>
+                                <a href="" class="aside-Featured-a">
+                                    <span class="rank">4</span>
+                                    <span class="lb-tittle">
+                                        <span class="songname">長成什麼樣子算愛情</span>
+                                        <span class="singer">麋先生</span>
+                                    </span>
+                                </a>
+                                <a href="" class="aside-Featured-a">
+                                    <span class="rank">5</span>
+                                    <span class="lb-tittle">
+                                        <span class="songname">閉上眼睛會想起的人 (The One I Miss) </span>
+                                        <span class="singer">家家</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <a href="" class="more">看更多排行榜</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- section rwd-top-area -->
+            <section class="row rwd-top-area">
+                <div class="main-card col-lg-8 col-12">
+                    <div class="main-card-article">
+                        <img src="img/article/800x420 (9).jpg" alt="">
+                        <div class="container">
+                            <div class="main-card-tittle">
+                                <span>Ken's Bar開店！為開唱，平井堅跑卡拉OK練唱上百回</span>
+                                <p>2021/12/26</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="aside-cards col-lg-4 col-12">
+                        <div class="aside-card">
+                            <img src="img/article/800x420 (7).jpg" alt="">
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">韓語</a>
+                                    <a href="">獎項榜單</a>
+                                </div>
+                                <span>Wanna One 合體、李孝利性感演出！2021 MAMA 過目不忘舞台一次看</span>
+                                <p>2021/12/26 Isa Chang</p>
+                            </div>
+                        </div>
+                        <div class="aside-card">
+                            <img src="img/article/800x420 (6).jpg" alt="">
+                            <div class="aside-card-tittle">
+                                <div class="aside-card-a">
+                                    <a href="">韓語</a>
+                                    <a href="">獎項榜單</a>
+                                </div>
+                                <span>Wanna One 合體、李孝利性感演出！2021 MAMA 過目不忘舞台一次看</span>
+                                <p>2021/12/26 Isa Chang</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section rwd latest -->
+            <div class="container">
+                <section class="rwd-Latest">
+                    <h2 class="section__title">Latest</h2>
+                    <div class="Latest-top">
+                        <div class="row">
+                            <div class="main-card col-lg-6 col-12">
+                                <img src="img/article/800x420 (10).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">華語</a>
+                                    </div>
+                                    <span>相隔 5 年生祥樂隊再開唱！邀大象體操當表演嘉賓</span>
+                                    <p>2021/12/27KKBOX編輯室</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="aside-card col-6">
+                                <img src="img/article/800x420 (8).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">西洋</a>
+                                        <a href="">獨立/另類</a>
+                                        <a href="">專訪</a>
+                                    </div>
+                                    <span>【專訪】放手讓自己與音樂墜入愛河－倫敦超新星 No Rome</span>
+                                    <p>2021/12/23KKBOX編輯室</p>
+                                </div>
+                            </div>
+                            <div class="aside-card col-6">
+                                <img src="img/article/800x420 (3).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">西洋</a>
+                                        <a href="">焦點</a>
+                                        <a href="">專訪</a>
+                                    </div>
+                                    <span>【專訪】Westlife 透露明年來台開唱！新專輯《Wild Dreams》首首參與創作一窺內心世界</span>
+                                    <p>2021/12/4Daniel C.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="aside-card col-6">
+                                <img src="img/article/800x420 (5).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">華語</a>
+                                    </div>
+                                    <span>萬芳首開線上演唱會！這天在 KKTIX 暖邀歌迷線上見</span>
+                                    <p>2021/12/2KKBOX編輯室</p>
+                                </div>
+                            </div>
+                            <div class="aside-card col-6">
+                                <img src="img/article/800x420 (4).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">韓語</a>
+                                        <a href="">焦點</a>
+                                        <a href="">主題音樂</a>
+                                    </div>
+                                    <span>暴雷推薦！《Show Me The Money 10》8組必追矚目選手</span>
+                                    <p>2021/12/2Ms.哭包</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- section rwd Featured -->
+            <div class="container">
+                <section class="rwd-Featured">
+                    <h2 class="section__title">Featured</h2>
+                    <div class=" main-Featured">
+                        <div class="row">
+                            <div class="aside-card col-12">
+                                <img src="img/article/800x420.jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">金曲獎</a>
+                                        <a href="">華語</a>
+                                        <a href="">焦點</a>
+                                    </div>
+                                    <span>【金曲32】陳鎮川：擦亮金曲獎招牌的關鍵人物！公開典禮幕前幕後的驚險瞬間</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="aside-card col-6">
+                                <img src="img/article/800x420 (1).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">金曲獎</a>
+                                        <a href="">華語</a>
+                                        <a href="">焦點</a>
+                                    </div>
+                                    <span>【金曲32】恭喜葛大為〈無人知曉〉獲得最佳作詞人獎！卻自嘲慘歌專業戶？</span>
+                                </div>
+                            </div>
+                            <div class="aside-card col-6">
+                                <img src="img/article/800x420 (2).jpg" alt="">
+                                <div class="aside-card-tittle">
+                                    <div class="aside-card-a">
+                                        <a href="">金曲獎</a>
+                                        <a href="">華語</a>
+                                        <a href="">焦點</a>
+                                    </div>
+                                    <span>【金曲32】最佳新人 ?te 壞特：最神秘也最引人矚目的明日之星！</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aside-Featured col-12">
+                        <span>新歌即時榜</span>
+                        <div class="leaderboard">
+                            <a href="" class="aside-Featured-a">
+                                <span class="rank">1</span>
+                                <span class="lb-tittle">
+                                    <span class="songname">閣愛妳一擺 (Love You One More Time)</span>
+                                    <span class="singer">茄子蛋</span>
+                                </span>
+                            </a>
+                            <a href="" class="aside-Featured-a">
+                                <span class="rank">2</span>
+                                <span class="lb-tittle">
+                                    <span class="songname">好不容易 (Finally) - 《華燈初上</span>
+                                    <span class="singer">告五人</span>
+                                </span>
+                            </a>
+                            <a href="" class="aside-Featured-a">
+                                <span class="rank">3</span>
+                                <span class="lb-tittle">
+                                    <span class="songname">對等關係 (feat. 張惠妹)</span>
+                                    <span class="singer">李榮浩, 張惠妹</span>
+                                </span>
+                            </a>
+                            <a href="" class="aside-Featured-a">
+                                <span class="rank">4</span>
+                                <span class="lb-tittle">
+                                    <span class="songname">長成什麼樣子算愛情</span>
+                                    <span class="singer">麋先生</span>
+                                </span>
+                            </a>
+                            <a href="" class="aside-Featured-a">
+                                <span class="rank">5</span>
+                                <span class="lb-tittle">
+                                    <span class="songname">閉上眼睛會想起的人 (The One I Miss) </span>
+                                    <span class="singer">家家</span>
+                                </span>
+                            </a>
+                        </div>
+                        <a href="" class="more">看更多排行榜</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- section New Hits -->
+            <section class="hits">
+                <div class="container">
+                    <h2 class="section__title">New Hits</h2>
+                    <div class="row">
+                        <div class="card1 col-lg-3 col-12">
+                            <div class="card1h">
+                                <img src="img/playlist/300x300.jpg" alt="">
+                                <div class="card1-tittle">
+                                    <span>華語速爆新歌 (每週二五更新)</span>
+                                    <p>【封面人物：ØZI, 蛋堡】</p>
+                                </div>
+                            </div>
+                            <div class="card1-album">
+                                <div class="album">
+                                    <img src="img/album/160x160 (2).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (3).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (6).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card1 col-lg-3 col-12">
+                            <div class="card1h">
+                                <img src="img/playlist/300x300 (1).jpg" alt="">
+                                <div class="card1-tittle">
+                                    <span>華語速爆新歌 (每週二五更新)</span>
+                                    <p>【封面人物：ØZI, 蛋堡】</p>
+                                </div>
+                            </div>
+                            <div class="card1-album">
+                                <div class="album">
+                                    <img src="img/album/160x160 (1).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (10).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (4).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card1 col-lg-3 col-12">
+                            <div class="card1h">
+                                <img src="img/playlist/300x300 (2).jpg" alt="">
+                                <div class="card1-tittle">
+                                    <span>華語速爆新歌 (每週二五更新)</span>
+                                    <p>【封面人物：ØZI, 蛋堡】</p>
+                                </div>
+                            </div>
+                            <div class="card1-album">
+                                <div class="album">
+                                    <img src="img/album/160x160.jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (5).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (7).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card1 col-lg-3 col-12">
+                            <div class="card1h">
+                                <img src="img/playlist/300x300 (3).jpg" alt="">
+                                <div class="card1-tittle">
+                                    <span>華語速爆新歌 (每週二五更新)</span>
+                                    <p>【封面人物：ØZI, 蛋堡】</p>
+                                </div>
+                            </div>
+                            <div class="card1-album">
+                                <div class="album">
+                                    <img src="img/album/160x160 (8).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                                <div class="album">
+                                    <img src="img/album/160x160 (9).jpg" alt="">
+                                    <div class="album-tittle">
+                                        <span>跑馬燈 DEATH TRIP</span>
+                                        <p>ØZI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <!-- pc footer -->
+        <footer class="pc-ft">
+            <div class="pc-ft-contain">
+                <div class="pc-ft-1 pc-ft-l">
+                    <h3>公司簡介</h3>
+                    <ul>
+                        <li>關於KKBOX</li>
+                        <li>隱私權政策</li>
+                        <li>歌曲上架</li>
+                        <li>營業公播服務</li>
+                        <li>人才招募</li>
+                        <li>全新KKBOX</li>
+                    </ul>
+                </div>
+                <div class="pc-ft-1">
+                    <h3>會員服務</h3>
+                    <ul>
+                        <li>會員中心</li>
+                        <li>點數中心</li>
+                        <li>服務中心</li>
+                        <li>會員使用條款</li>
+                    </ul>
+                </div>
+                <div class="pc-ft-1">
+                    <h3>常用連結</h3>
+                    <ul>
+                        <li>服務介紹</li>
+                        <li>付費</li>
+                        <li>儲值</li>
+                        <li>註冊</li>
+                        <li>家庭方案</li>
+                        <li>聆聽成就</li>
+                        <li>Hi-Fi 無損音質</li>
+                        <li>免費聽</li>
+                        <li>KKBOX Kids</li>
+                        <li>一起聽</li>
+                        <li>Podcast</li>
+                    </ul>
+                </div>
+                <div class="pc-ft-2">
+                    <h3>KKCompany
+                        KKTIX</h3>
+                    <ul>
+                        <li><img src="img/logo/kktix-white.2.svg" alt=""></li>
+                        <li><img src="img/logo/kkstream-white.svg" alt=""></li>
+                        <li><img src="img/logo/kktv-white.svg" alt=""></li>
+                        <li><img src="img/logo/thefarm-white.svg" alt=""></li>
+                        <li><img src="img/logo/kklab-white.svg" alt=""></li>
+                    </ul>
+                </div>
+                <div class="pc-ft-1">
+                    <h3>加入社群</h3>
+                    <ul class="pc-ft-i">
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-youtube"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                    </ul>
+                    <div class="pc-ft-p">
+                        <p>台灣</p>
+                        <p>繁體中文</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pc-ft-bot">
+                <div class="pc-bt-contain">
+                    <p>Copyright © 2021 KKBOX All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- mobile footer -->
+        <footer class="mb-ft">
+            <div class="mb-ft-contain">
+                <div class="mb-ft-p">
+                    <p>台灣</p>
+                    <p>繁體中文</p>
+                </div>
+                <div class="mb-bt-contain">
+                    <p>Copyright © 2021 KKBOX All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('.top-area img').mouseenter(function () {
+            $(this).addClass('scale');
+        });
+
+        $('.top-area img').mouseleave(function () {
+            $(this).removeClass('scale');
+            $(this).addClass('scalee');
+        });
+
+        $('.Latest img').mouseenter(function () {
+            $(this).addClass('scale');
+        });
+
+        $('.Latest img').mouseleave(function () {
+            $(this).removeClass('scale');
+            $(this).addClass('scalee');
+        });
+
+        $('.Featured img').mouseenter(function () {
+            $(this).addClass('scale');
+        });
+
+        $('.Featured img').mouseleave(function () {
+            $(this).removeClass('scale');
+            $(this).addClass('scalee');
+        });
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= $('.pc-hd').offset().top) {
+                $('.pc-hd').addClass('fixed');
+            }
+            else {
+                $('.pc-hd').removeClass('fixed');
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() <= $('.pc-hd').offset().top) {
+                $('.pc-hd').addClass('static');
+            }
+            else {
+                $('.pc-hd').removeClass('static');
+            }
+        });
+    </script>
+</body>
+
+</html>
